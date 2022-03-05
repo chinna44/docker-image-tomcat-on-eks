@@ -16,6 +16,6 @@
     </dependency>
   </dependencies>
   <build>
-    <finalName>giridharQA</finalName>
+    <finalName>giridhar</finalName>
   </build>
 </project>
