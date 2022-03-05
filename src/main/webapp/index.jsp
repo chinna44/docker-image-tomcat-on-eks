@@ -1,1 +1,1 @@
-Successfully integrated Jenkins with Github. 
+Successfully logged into Application - QA Branch
