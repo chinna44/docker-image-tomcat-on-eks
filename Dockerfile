@@ -1,4 +1,4 @@
-FROM centos:8
+FROM centos:7
 MAINTAINER giridhard444@gmail.com
 
 ENV CREATE_DIR /opt/software/
