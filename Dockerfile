@@ -6,6 +6,7 @@ ENV CREATE_DIR /opt/software/
 WORKDIR $CREATE_DIR
 
 RUN     yum update -y \
+        && yum install wget -y \
         && cd $CREATE_DIR \
 	&& wget https://mirrors.estointernet.in/apache/tomcat/tomcat-8/v8.5.76/bin/apache-tomcat-8.5.76.tar.gz \
 	&& tar -xzvf apache-tomcat-8.5.76.tar.gz \
