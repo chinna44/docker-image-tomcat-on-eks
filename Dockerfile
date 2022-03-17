@@ -21,7 +21,6 @@ COPY ./target/giridhar.war /opt/software/tomcat/webapps/
 RUN     cd /etc/systemd/system/multi-user.target.wants/
         && ln -s /usr/lib/systemd/system/tomcat.service tomcat.service
         
-EXPOSE 8080
 EXPOSE 4444
 
 CMD ["systemctl", "start", "tomcat"]
