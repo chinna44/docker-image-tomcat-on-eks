@@ -23,6 +23,6 @@ COPY ./target/giridhar.war /opt/software/tomcat/webapps/
 RUN     cd /etc/systemd/system/multi-user.target.wants \
         && ln -s /usr/lib/systemd/system/tomcat.service tomcat.service
         
-EXPOSE 4444
+EXPOSE 8080
 
-CMD ["systemctl", "start", "tomcat"]
+CMD ["/opt/software/tomcat/bin/startup.sh", "run"]
