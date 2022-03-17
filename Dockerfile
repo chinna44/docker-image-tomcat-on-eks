@@ -2,15 +2,16 @@ FROM centos:7
 MAINTAINER giridhard444@gmail.com
 
 ENV CREATE_DIR /opt/software/
+ENV VER 9.0.39
 
 WORKDIR $CREATE_DIR
 
 RUN     yum update -y \
         && yum install wget -y \
         && cd $CREATE_DIR \
-	&& wget https://mirrors.estointernet.in/apache/tomcat/tomcat-8/v8.5.76/bin/apache-tomcat-8.5.76.tar.gz \
-	&& tar -xzvf apache-tomcat-8.5.76.tar.gz \
-	&& ln -s /opt/software/apache-tomcat-8.5.76 tomcat \
+	&& wget https://archive.apache.org/dist/tomcat/tomcat-9/v${VER}/bin/apache-tomcat-${VER}.tar.gz \
+	&& tar -xzvf apache-tomcat-${VER}.tar.gz \
+	&& ln -s /opt/software/apache-tomcat-${VER} tomcat \
 	&& wget https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.rpm \
 	&& rpm -ivh --prefix /opt/software/ jdk-17_linux-x64_bin.rpm \
 	&& ln -s /opt/software/jdk-17.0.2 java
