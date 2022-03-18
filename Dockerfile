@@ -25,4 +25,4 @@ RUN     cd /etc/systemd/system/multi-user.target.wants \
         
 EXPOSE 8080
 
-CMD ["/opt/software/tomcat/bin/startup.sh", "run"]
+CMD ["/opt/software/tomcat/bin/startup.sh", "start"]
