@@ -1,6 +1,6 @@
 FROM centos:7
 MAINTAINER giridhar
-ENV VER 9.0.60
+ENV VER 9.0.62
 RUN yum update -y \
     && yum install java -y
 RUN  mkdir -p /opt/software
