@@ -11,4 +11,5 @@ RUN tar -xvzf apache-tomcat-${VER}.tar.gz \
 COPY ./index.html /opt/software/tomcat/webapps/ROOT/
 COPY ./target/giridhar.war /opt/software/tomcat/webapps/
 EXPOSE 8080
-CMD ["/opt/software/tomcat/bin/catalina.sh", "run"]
+RUN chmod +x /opt/software/tomcat/bin/catalina.sh
+ENTRYPOINT ["catalina.sh", "run"]
