@@ -12,4 +12,4 @@ COPY ./index.html /opt/software/tomcat/webapps/ROOT/
 COPY ./target/giridhar.war /opt/software/tomcat/webapps/
 RUN chmod -R 777 /opt/software/tomcat/bin/catalina.sh
 EXPOSE 8080
-CMD ["/opt/software/tomcat/bin/catalina.sh", "run"]
+ENTRYPOINT ["/opt/software/tomcat/bin/catalina.sh","start"]
