@@ -13,5 +13,6 @@ RUN java -version
 
 WORKDIR /opt/tomcat/webapps
 RUN curl -O -L https://github.com/AKSarav/SampleWebApp/raw/master/dist/SampleWebApp.war
+CMD ["/opt/tomcat/bin/catalina.sh", "run"]
 
 EXPOSE 8080
