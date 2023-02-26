@@ -1,15 +1,19 @@
-FROM centos:7
-MAINTAINER giridhar
-ENV VER 9.0.72
-RUN yum update -y \
-    && yum install java -y
-RUN  mkdir -p /opt/software
-WORKDIR /opt/software/
-ADD https://dlcdn.apache.org/tomcat/tomcat-9/v${VER}/bin/apache-tomcat-${VER}.tar.gz .
-RUN tar -xvzf apache-tomcat-${VER}.tar.gz \
-    && ln -s /opt/software/apache-tomcat-${VER} tomcat
-COPY ./index.html /opt/software/tomcat/webapps/ROOT/
-COPY ./target/giridhar.war /opt/software/tomcat/webapps/
-RUN chmod -R 777 /opt/software/tomcat/bin/catalina.sh
+FROM centos
+
+MAINTAINER hello@gritfy.com
+
+RUN mkdir /opt/tomcat/
+
+WORKDIR /opt/tomcat
+RUN curl -O https://downloads.apache.org/tomcat/tomcat-8/v8.5.86/bin/apache-tomcat-8.5.86.tar.gz
+RUN tar xvfz apache*.tar.gz
+RUN mv apache-tomcat-8.5.40/* /opt/tomcat/.
+RUN yum -y install java
+RUN java -version
+
+WORKDIR /opt/tomcat/webapps
+RUN curl -O -L https://github.com/AKSarav/SampleWebApp/raw/master/dist/SampleWebApp.war
+
 EXPOSE 8080
-CMD ["/opt/software/tomcat/bin/catalina.sh", "run"]
+
+CMD ["/opt/tomcat/bin/catalina.sh", "run"]
